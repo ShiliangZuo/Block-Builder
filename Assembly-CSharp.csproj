@@ -50,16 +50,16 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BaseGrid.cs" />
      <Compile Include="Assets\Scripts\BaseGridCell.cs" />
+     <Compile Include="Assets\Scripts\Configuration.cs" />
      <Compile Include="Assets\Scripts\CubeBlock.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\TestDrawLine.cs" />
      <Compile Include="Assets\Scripts\ThreeView.cs" />
      <Compile Include="Assets\Scripts\Utils\DrawingUtil.cs" />
      <Compile Include="Assets\Scripts\Utils\IntVector2.cs" />
      <Compile Include="Assets\Scripts\Utils\LineType.cs" />
      <Compile Include="Assets\Scripts\Utils\Segment.cs" />
+     <Compile Include="Assets\Scripts\Utils\TestDrawLine.cs" />
      <Compile Include="Assets\Scripts\Utils\ViewType.cs" />
-     <Compile Include="Assets\Scripts\ViewMap.cs" />
      <Compile Include="Assets\Scripts\ViewPanel.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>

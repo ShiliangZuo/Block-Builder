@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BaseGrid : MonoBehaviour {
 
-	public IntVector2 size;
 	public BaseGridCell cellPrefab;
 	public float generationStepDelay = 0.01f;
 
+	private IntVector2 size = Configuration.gridSize;
 	private BaseGridCell[,] cells;
 	private const float cellLength = 1f;
 	private const float cellHeight = 0.1f;
@@ -14,7 +14,6 @@ public class BaseGrid : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	}
 	
 	// Update is called once per frame

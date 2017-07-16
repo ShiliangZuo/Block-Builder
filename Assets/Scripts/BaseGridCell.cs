@@ -7,9 +7,8 @@ public class BaseGridCell : MonoBehaviour {
 	public IntVector2 coordinates;
 
 	public CubeBlock cubeBlockPrefab;
-
-	[SerializeField]
-	private int maxHeight = 5;
+	
+	private int maxHeight = Configuration.maxHeight;
 
 	//private bool isHighlighted = false;
 	private LinkedList<CubeBlock> cubes = new LinkedList<CubeBlock>();
