@@ -42,10 +42,6 @@ public class ViewPanel : MonoBehaviour {
 	
 	}
 
-	void Init() {
-
-	}
-
 	public void DrawView(Dictionary<Segment, LineType> lineMap) {
 		foreach (KeyValuePair<Segment, LineType> entry in lineMap) {
 			if (entry.Value == LineType.NoLine) {
@@ -56,6 +52,8 @@ public class ViewPanel : MonoBehaviour {
 	}
 	
 	//Draw a line on the panel
-	private void DrawSegment(Segment segment, LineType lineType) {
+	private void DrawSegment(Segment segment, LineType lineType) { 
+		
 	}
+
 }
