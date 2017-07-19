@@ -19,9 +19,9 @@ public class ViewPanel : MonoBehaviour {
 	private Vector2 panelSize; //E.g., the length is 300 by 500, equals blockSize * lengthPerBlock
 	private int lengthPerBlock = Configuration.panelLengthPerBlock;
 
-
-	// Use this for initialization
-	void Start () {
+	private Color defaultColor;
+	private Color highlightColor = new Color(0,1,1,0.2f);
+	void Awake () {
 		if (viewType == ViewType.TopView) {
 			blockSize.x = Configuration.gridSize.x;
 			blockSize.z = Configuration.gridSize.z;
@@ -35,17 +35,36 @@ public class ViewPanel : MonoBehaviour {
 		if (viewType == ViewType.RightView) {
 			blockSize.x = Configuration.gridSize.z;
 			blockSize.z = Configuration.maxHeight;
+			//Debug.Log("panelSize" + panelSize);
 		}
 
 		panelSize.x = blockSize.x * lengthPerBlock;
 		panelSize.y = blockSize.z * lengthPerBlock;
 
+
+
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2(panelSize.x, panelSize.y);
+
+		defaultColor = this.GetComponent<Image>().color;
+	}
+
+	// Use this for initialization
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void ChangeColorOnCompare(bool flag) {
+		if (flag == true) {
+			this.GetComponent<Image>().color = highlightColor;
+		}
+		else {
+			this.GetComponent<Image>().color = defaultColor;
+		}
 	}
 
 	public void DrawView(Dictionary<Segment, LineType> lineMap) {
@@ -67,6 +86,7 @@ public class ViewPanel : MonoBehaviour {
 		IntVector2 pointB = segment.p2;
 		Vector2 startPosition = new Vector2(pointA.x * lengthPerBlock, pointA.z * lengthPerBlock);
 		Vector2 endPosition = new Vector2(pointB.x * lengthPerBlock, pointB.z * lengthPerBlock);
+
 		startPosition -= panelSize/2;
 		endPosition -= panelSize/2;
 		startPosition *= panelDisplayScale;
