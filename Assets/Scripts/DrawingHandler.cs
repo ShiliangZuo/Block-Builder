@@ -20,6 +20,14 @@ public class DrawingHandler : MonoBehaviour {
 	void Start () {
 		int[,] height = new int[Configuration.gridSize.x, Configuration.gridSize.z];
 		height[0,0] = 5;
+		height[0,1] = 3;
+		height[0,2] = 4;
+		height[1,0] = 2;
+		height[1,1] = 0;
+		height[1,2] = 4;
+		height[2,0] = 3;
+		height[2,1] = 2;
+		height[2,2] = 4;
 		Dictionary<IntVector3, bool> targetBlock = To3DMapping(height);
 		
 		targetTopView = ThreeView.GetTopView(targetBlock);
