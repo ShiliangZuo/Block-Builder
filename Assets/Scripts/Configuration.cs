@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Configuration {
+public class Configuration{
 
 	public static IntVector2 gridSize = new IntVector2(3,3);
 

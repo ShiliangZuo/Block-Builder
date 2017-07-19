@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BaseGrid : MonoBehaviour {
 
@@ -12,8 +13,11 @@ public class BaseGrid : MonoBehaviour {
 	private const float cellHeight = 0.1f;
 	private IntVector2 currentCoordinates = new IntVector2(0,0);
 
+	private GameObject DrawingHandler;
+
 	// Use this for initialization
 	void Start () {
+		DrawingHandler = GameObject.Find("Drawing Handler");
 	}
 	
 	// Update is called once per frame
@@ -116,10 +120,21 @@ public class BaseGrid : MonoBehaviour {
 	private void AddCubeToCoordinate(IntVector2 coordinates) {
 		BaseGridCell designatedCell = cells[coordinates.x, coordinates.z];
 		designatedCell.AddCube();
+
+		DrawingHandler.GetComponent<DrawingHandler>().DrawMultiView(cells);
+
+		//
+		//Should probably move this to some different script that handles the drawing
+		//Convert it into a 3D boolean array
+		/*Dictionary<Segment, LineType> topViewMap = ThreeView.GetTopView(cells);
+		GameObject currentTopViewPanel = GameObject.Find("Current Top View Panel");
+		currentTopViewPanel.GetComponent<ViewPanel>().DrawView(topViewMap);*/
 	}
 
 	private void DeleteCubeFromCoordinate(IntVector2 coordinates) {
 		BaseGridCell designatedCell = cells[coordinates.x, coordinates.z];
 		designatedCell.DeleteCube();
+
+		DrawingHandler.GetComponent<DrawingHandler>().DrawMultiView(cells);
 	}
 }

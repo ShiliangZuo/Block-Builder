@@ -25,4 +25,27 @@ public struct IntVector2 {
 		return !(a==b);
 	}
 
+	public override string ToString() {
+		return "(" + x + "," + z + ")";
+	}
+
+    public override int GetHashCode()
+    {
+        return x.GetHashCode() ^ z.GetHashCode();
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+        return Equals((IntVector2)obj);
+    }
+
+	public bool Equals(IntVector2 other)
+    {
+        return other.x.Equals(x) && other.z.Equals(z);
+    }
+
 }

@@ -1,5 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
 Project("{24619005-BC13-3B4F-A6DD-300FA081B9EA}") = "Block Builder", "Assembly-CSharp.csproj", "{A86EE419-5E31-FC5A-F25D-8A72587505FE}"
 EndProject
 Project("{24619005-BC13-3B4F-A6DD-300FA081B9EA}") = "Block Builder", "Assembly-CSharp-Editor.csproj", "{216E3320-0151-5C1F-DFAF-429236E7DDF0}"
@@ -18,6 +19,9 @@ Global
 		{216E3320-0151-5C1F-DFAF-429236E7DDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216E3320-0151-5C1F-DFAF-429236E7DDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216E3320-0151-5C1F-DFAF-429236E7DDF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
