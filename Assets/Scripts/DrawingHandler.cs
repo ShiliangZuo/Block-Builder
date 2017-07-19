@@ -35,6 +35,12 @@ public class DrawingHandler : MonoBehaviour {
 
 		Dictionary<Segment, LineType> topView = ThreeView.GetTopView(cubes);
 		currentTopViewPanel.GetComponent<ViewPanel>().DrawView(topView);
+
+		Dictionary<Segment, LineType> frontView = ThreeView.GetFrontView(cubes);
+		currentFrontViewPanel.GetComponent<ViewPanel>().DrawView(frontView);
+
+		Dictionary<Segment, LineType> rightView = ThreeView.GetRightView(cubes);
+		currentRightViewPanel.GetComponent<ViewPanel>().DrawView(rightView);
 	}
 	
 }

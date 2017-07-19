@@ -42,10 +42,6 @@ public class ViewPanel : MonoBehaviour {
 		panelSize.y = blockSize.z * lengthPerBlock;
 
 		this.GetComponent<RectTransform>().sizeDelta = new Vector2(panelSize.x, panelSize.y);
-
-		IntVector2 start = new IntVector2(0,0);
-		IntVector2 end = new IntVector2(3,0);
-		DrawSegment(new Segment(start,end), LineType.SolidLine);
 	}
 	
 	// Update is called once per frame
@@ -77,20 +73,17 @@ public class ViewPanel : MonoBehaviour {
 		startPosition *= panelDisplayScale;
 		endPosition *= panelDisplayScale;
 
-		GameObject lineGameObject;
-		if (lineType == LineType.SolidLine) {
-			lineGameObject = Instantiate(solidLine) as GameObject;
-		}
-		else if (lineType == LineType.DashedLine) {
-			lineGameObject = Instantiate(solidLine) as GameObject;
-		}
-		else {
-			return;
-		}
+		GameObject lineGameObject = Instantiate(solidLine) as GameObject;
 		lineGameObject.transform.SetParent(this.transform, false);
 		LineRenderer lineRenderer = lineGameObject.GetComponent<LineRenderer>();
 		lineRenderer.SetPosition(0, startPosition);
 		lineRenderer.SetPosition(1, endPosition);
+
+		if (lineType == LineType.DashedLine) {
+			float distance = Vector3.Distance(startPosition, endPosition);
+			lineRenderer.material.mainTextureScale = new Vector2(distance, 1);
+		}
+
 		lines.Add(lineGameObject);
 
 	}
