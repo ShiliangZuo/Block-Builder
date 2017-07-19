@@ -4,11 +4,6 @@ using System.Collections.Generic;
 
 public class ThreeView {
 
-	//Top View is rather easy, we can check whether a segment is present in the 2D view
-	//(i.e., start from the 2D view)
-
-	//Front and Right is a bit complicated
-
 	public static Dictionary<Segment, LineType> GetFrontView(Dictionary<IntVector3,bool> cubes) {
 		Dictionary<Segment, LineType> frontView = new Dictionary<Segment, LineType>();
 		IntVector2 size = new IntVector2(Configuration.gridSize.x, Configuration.maxHeight);

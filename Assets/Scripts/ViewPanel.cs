@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ViewPanel : MonoBehaviour {
 
 	public GameObject solidLine;
-	public GameObject dashedLine;
 
 	[SerializeField]
 	private float panelDisplayScale = 0.8f; //E.g., if this were set to 1, then a full display would fill up the whole panel

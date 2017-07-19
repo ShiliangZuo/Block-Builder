@@ -60,7 +60,7 @@ public class BaseGridCell : MonoBehaviour {
 		}
 		else {
 			newCubeBlock.transform.localPosition = cubes.Last.Value.transform.localPosition 
-				+ new Vector3(0f, 1f, 0f);
+				+ new Vector3(0f, cubeLength, 0f);
 			cubes.Last.Value.UnhighlightCube();
 		}
 		cubes.AddLast(newCubeBlock);
