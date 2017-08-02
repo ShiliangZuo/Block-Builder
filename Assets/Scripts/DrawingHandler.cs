@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using MiniJSON;
 
 public class DrawingHandler : MonoBehaviour {
 
@@ -16,18 +18,14 @@ public class DrawingHandler : MonoBehaviour {
 	private Dictionary<Segment,LineType> targetFrontView;
 	private Dictionary<Segment,LineType> targetRightView;
 
+	private string jsonFilePath = "Assets/Scripts/Level.json";
+
 	// Use this for initialization
 	void Start () {
+		//TODO
+		//This should be somewhere else
 		int[,] height = new int[Configuration.gridSize.x, Configuration.gridSize.z];
-		height[0,0] = 5;
-		height[0,1] = 3;
-		height[0,2] = 4;
-		height[1,0] = 2;
-		height[1,1] = 0;
-		height[1,2] = 4;
-		height[2,0] = 3;
-		height[2,1] = 2;
-		height[2,2] = 4;
+		ParseJson(jsonFilePath, height);
 		Dictionary<IntVector3, bool> targetBlock = To3DMapping(height);
 		
 		targetTopView = ThreeView.GetTopView(targetBlock);
@@ -39,9 +37,17 @@ public class DrawingHandler : MonoBehaviour {
 		targetRightViewPanel.GetComponent<ViewPanel>().DrawView(targetRightView);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	private void ParseJson(string jsonFilePath, int[,] height) {
+		string jsonString = File.ReadAllText(jsonFilePath);
+		Dictionary<string, object> dict;
+		dict = Json.Deserialize(jsonString) as Dictionary<string,object>;
+		List<object> _2DList = ((List<object>) dict["height"]);
+		for (int i = 0; i < Configuration.gridSize.x; ++i) {
+			List<object> _list = ((List<object>) _2DList[i]);
+			for (int j = 0; j < Configuration.gridSize.z; ++j) {
+				height[i,j] = System.Convert.ToInt32(_list[j]);
+			}
+		}
 	}
 
 	public void DrawMultiView(BaseGridCell[,] cells) {

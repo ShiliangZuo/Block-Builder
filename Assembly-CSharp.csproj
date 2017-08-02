@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\CubeBlock.cs" />
      <Compile Include="Assets\Scripts\DrawingHandler.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MiniJSON.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\ThreeView.cs" />
      <Compile Include="Assets\Scripts\Utils\IntVector2.cs" />
