@@ -18,7 +18,7 @@ public class DrawingHandler : MonoBehaviour {
 	private Dictionary<Segment,LineType> targetFrontView;
 	private Dictionary<Segment,LineType> targetRightView;
 
-	private string jsonFilePath = "Assets/Scripts/Level.json";
+	private string jsonFilePath = "Assets/Scripts/Puzzles.json";
 
 	// Use this for initialization
 	void Start () {
